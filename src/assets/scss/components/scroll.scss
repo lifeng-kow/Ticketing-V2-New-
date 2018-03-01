@@ -1,0 +1,11 @@
+.scrollContainer {
+	@include global-container();
+}
+
+.scrollY {
+	@include scrollY();
+}
+
+.scrollYPackages {
+	@include scrollY(600px);
+}
