@@ -8,11 +8,13 @@ $(function(){
   loginCallOut = loginComponent.find('.formCallout');
 
   appCookie = Cookies.getJSON('appCookie');
+  if (appCookie.loginID){
+    window.location.href = 'Ticketing/TicketingHome.html';
+  }
   checkRememberMe();
 
   $('#loginComponent').keyup(function(e){
     if(e.keyCode == 13){
-
         initLogin(apiSrc);
     }
   });
@@ -35,8 +37,8 @@ function initLogin(apiSrc) {
     xhrFields: { withCredentials: true },
     data: {
       'data': JSON.stringify(data),
-      'WebPartKey':'021cb7cca70748ff89795e3ad544d5eb',
-      'ReqGUID': 'b4bbedbf-e591-4b7a-ad20-101f8f656277'
+      'WebPartKey':WebPartVal,
+      'ReqGUID': getGUID()
     }
   })
   .done(function(data) {
@@ -59,8 +61,8 @@ function getLoginInfo(callout) {
       xhrFields: { withCredentials: true },
       data: {
         'data': {},
-        'WebPartKey':'021cb7cca70748ff89795e3ad544d5eb',
-        'ReqGUID': 'b4bbedbf-e591-4b7a-ad20-101f8f656277'
+        'WebPartKey':WebPartVal,
+        'ReqGUID': getGUID()
       }
     })
     .done(function(data) {
@@ -80,8 +82,8 @@ function getLoginInfo(callout) {
       xhrFields: { withCredentials: true },
       data: {
         'data': {},
-        'WebPartKey':'021cb7cca70748ff89795e3ad544d5eb',
-        'ReqGUID': 'b4bbedbf-e591-4b7a-ad20-101f8f656277'
+        'WebPartKey':WebPartVal,
+        'ReqGUID': getGUID()
       }
     })
     .done(function(data) {
@@ -108,7 +110,7 @@ function getLoginInfo(callout) {
     Cookies.set('appCookie', appCookie);
 
     if (appCookie.loginID || !appCookie.redirectPage || appCookie.redirectPage==undefined){
-      window.location.href = 'index.html';
+      window.location.href = 'Ticketing/TicketingHome.html';
     }else{
       window.location.href = appCookie.redirectPage;
     }
@@ -129,8 +131,8 @@ function getLoginInfo(callout) {
         xhrFields: { withCredentials: true },
         data: {
           'data': JSON.stringify(''),
-          'WebPartKey':'021cb7cca70748ff89795e3ad544d5eb',
-          'ReqGUID': 'b4bbedbf-e591-4b7a-ad20-101f8f656277'
+          'WebPartKey':WebPartVal,
+          'ReqGUID': getGUID()
         }
       })
       .done(function(data) {
@@ -142,3 +144,13 @@ function getLoginInfo(callout) {
         console.log( "Request failed: " + textStatus );
       });
     } //checkRememberMe
+
+    function getGUID() {
+    	var d = new Date().getTime();
+    	var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    		var r = (d + Math.random() * 16) % 16 | 0;
+    		d = Math.floor(d / 16);
+    		return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    	});
+    	return uuid;
+    };
