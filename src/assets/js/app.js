@@ -15,6 +15,7 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 var appCookie, igwasCookie, WebPartVal, guid;
+window.WebPartVal='';
 
 //document ready
 $(function(){
