@@ -3,7 +3,6 @@ var access=false;
 $(function(){
 
   $("#newUserForm #role").change(function(){
-    console.log(1);
     if ($("#newUserForm #role").val()=='Customer'){
       $("#newUserForm #contactPoint").show();
     }else{
@@ -68,6 +67,7 @@ $(function(){
   getProductOwn();
   $.when(getOrgnaisation).then(function( x ) {
     getCasesList();
+    getUsersList();
     getOrgProductList($('#caseAddForm #organisation').val());
   });
 
@@ -80,6 +80,9 @@ $(function(){
   });
   $('#caseFilter .tabBoxButtonSubmit').click(function(){
     getCasesList();
+  });
+  $('#userFilter .tabBoxButtonSubmit').click(function(){
+    getUsersList();
   });
   $('#packageAddForm #submit').click(function(){
     addNewPackage();
@@ -160,6 +163,52 @@ function getCasesList(){
             var caseId = $(this).attr('id'),
                 caseUrl = './case.html?caseID=' + caseId
             window.location.href = caseUrl;
+          });
+        }
+      }
+    }
+  });
+};
+
+function getUsersList(){
+  var userContainerTable = $('#userContainer').find('table'),
+      userThead = userContainerTable.find('thead'),
+      userTbody = userContainerTable.find('tbody');
+
+  var name, entityKey, contactNo, email;
+  name = $('#userFilter #name').val();
+  entityKey = $('#userFilter #entityKey').val();
+  contactNo = $('#userFilter #contactNo').val();
+  email = $('#userFilter #email').val();
+
+  var data = {'name':name, 'entityKey':entityKey, 'contactNo':contactNo, 'email': email};
+  userTbody.html('');
+  $.ajax({
+    url: apiSrc+"BCMain/Ctc1.GetUsersList.json",
+    method: "POST",
+    dataType: "json",
+    xhrFields: {withCredentials: true},
+    data: { 'data':JSON.stringify(data),
+            'WebPartKey':WebPartVal,
+            'ReqGUID': getGUID() },
+    success: function(data){
+      if ((data) && (data.d.RetVal === -1)) {
+        if (data.d.RetData.Tbl.Rows.length > 0) {
+          var users = data.d.RetData.Tbl.Rows;
+          var htmlString = '';
+          for (var i=0; i<users.length; i++ ){
+            htmlString += '<tr id="'+ users[i].PersonID +'">';
+            htmlString += '<td>'+users[i].DisplayName+'</td>';
+            htmlString += '<td>'+users[i].EntityKey+'</td>';
+            htmlString += '<td>'+users[i].ContactNo+'</td>';
+            htmlString += '<td>'+users[i].Email1+'</td>';
+            htmlString += '<td>'+users[i].FullAddress+'</td> </tr>';
+          }
+          userTbody.html(htmlString);
+          $('.userTable tbody tr').click(function(){
+            var personID = $(this).attr('id'),
+                profileUrl = './profile.html?personID=' + personID
+            window.location.href = profileUrl;
           });
         }
       }
@@ -370,7 +419,7 @@ function addNewUser(){
   var data = {'firstName':firstName, 'lastName':lastName, 'entityKey':entityKey, 'mobile':mobile, 'email':email, 'country':country, 'postalCode':postalCode, 'city':city, 'state':state, 'block':block, 'street':street, 'unit':unit, 'building':building, 'role':role, 'poc1Name':poc1Name, 'poc1Contact':poc1Contact, 'poc1Email':poc1Email, 'poc1Designation':poc1Designation, 'poc1Department':poc1Department, 'poc2Name':poc2Name, 'poc2Contact':poc2Contact, 'poc2Email':poc2Email, 'poc2Designation':poc2Designation, 'poc2Department':poc2Department};
 
   $.ajax({
-    url: apiSrc+"BCMain/Ctc1.AddNewUser1.json",
+    url: apiSrc+"BCMain/iCtc1.AddNewUser1.json",
     method: "POST",
     dataType: "json",
     xhrFields: {withCredentials: true},
@@ -382,6 +431,7 @@ function addNewUser(){
         if (data.d.RetData.Tbl.Rows.length > 0) {
           if (data.d.RetData.Tbl.Rows[0].Success == true) {
             alert('New user added successfully!');
+            getUsersList();
           } else { alert(data.d.RetData.Tbl.Rows[0].ReturnMsg); }
         }
       }
