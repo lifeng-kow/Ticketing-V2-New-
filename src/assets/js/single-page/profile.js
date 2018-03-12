@@ -348,14 +348,14 @@ function updateContactPoint(PersonID){
 
 function showOrgProfile(){
   var orgProfile = '';
-  orgProfile = '<div class="toggleContent"><div id="basicContent" class="grid-container form">'+
+  orgProfile = '<div class="toggleContent"><div id="basicContent" class="grid-container form fluid">'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <div class="labelText"> Name </div> <div class="text orgName"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <div class="labelText"> UEN No </div> <div class="text entityKey"> </div> </div>'+
   '<div class="cell small-12 medium-6"> <div class="labelText"> ID Type </div> <div class="text idType"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <div class="labelText"> Contact No </div> <div class="text orgContact"> </div> </div>'+
   '<div class="cell small-12 medium-6"><div class="labelText"> Email </div> <div class="text orgEmail"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <div class="labelText"> Address </div> <div class="text orgAddress"> </div> </div> </div> </div>'+
-  '<form id="basicForm" class="grid-container">'+
+  '<form id="basicForm" class="grid-container fluid">'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <label for="name"> Name </label> <input type="text" id="name"/> </div>'+
   '<div class="cell small-12 medium-6"> <label for="tel1"> UEN No </label> <input type="text" id="entityKey"/> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <label for="tel1"> Contact No </label> <input type="text" id="tel1"/> </div>'+
@@ -379,13 +379,13 @@ function showOrgProfile(){
 
 function showIndProfile(){
   var indProfile = '';
-  indProfile = '<div class="toggleContent"><div id="basicContent" class="grid-container form">'+
+  indProfile = '<div class="toggleContent"><div id="basicContent" class="grid-container form fluid">'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <div class="labelText"> Name </div> <div class="text indName"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-4"> <div class="labelText"> Contact No (O) </div> <div class="text indTel"> </div> </div>'+
   '<div class="cell small-12 medium-4"> <div class="labelText"> Contact No (M) </div> <div class="text indMobile"> </div> </div>'+
   '<div class="cell small-12 medium-4"> <div class="labelText"> Email </div> <div class="text indEmail"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <div class="labelText"> Address </div> <div class="text indAddress"> </div> </div> </div> </div>'+
-  '<form id="basicForm" class="grid-container">'+
+  '<form id="basicForm" class="grid-container fluid">'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <label for="name"> Name </label> <input type="text" id="name"/> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-4"> <label for="tel1"> Contact No (O) </label> <input type="text" id="tel1"/> </div>'+
   '<div class="cell small-12 medium-4"> <label for="mobile"> Contact No (M) </label> <input type="text" id="mobile"/> </div>'+
@@ -410,7 +410,7 @@ function showIndProfile(){
 
 function showOrgContact(){
   var contactPoint = '';
-  contactPoint='<div class="toggleContent"><div id="contactPointContent" class="grid-container form">'+
+  contactPoint='<div class="toggleContent"><div id="contactPointContent" class="grid-container form fluid">'+
   '<h3>Point of Contact 1</h3>'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <div class="labelText"> Name </div> <div class="text poc1Name"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <div class="labelText"> Contact No </div> <div class="text poc1Contact"> </div> </div>'+
@@ -423,7 +423,7 @@ function showOrgContact(){
   '<div class="cell small-12 medium-6"> <div class="labelText"> Email </div> <div class="text poc2Email"> </div> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <div class="labelText"> Designation </div> <div class="text poc2Designation"> </div> </div>'+
   '<div class="cell small-12 medium-6"> <div class="labelText"> Department </div> <div class="text poc2Department"> </div> </div> </div> </div>'+
-  '<form id="contactPointForm" class="grid-container">'+
+  '<form id="contactPointForm" class="grid-container fluid">'+
   '<h3>Point of Contact 1</h3>'+
   '<div class="grid-x grid-padding-x"> <div class="cell"> <label for="poc1Name"> Name </label> <input type="text" id="poc1Name" /> </div> </div>'+
   '<div class="grid-x grid-padding-x"> <div class="cell small-12 medium-6"> <label for="poc1Contact"> Contact No  </label> <input type="text" name="poc1Contact" id="poc1Contact" /> </div>'+
