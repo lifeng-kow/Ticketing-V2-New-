@@ -3,8 +3,6 @@
     <a href="{{root}}Ticketing/TicketingHome.html" id="logo">BIZCUBE TICKETING</a>
     <ul id="navSecondary" >
       <li>
-        <a href="#" id="navSearch" title="Search"><i class="icon"><img src="{{root}}assets/img/icon-light-search.png" /></i> <span class="text">Search</span></a></li>
-      <li>
         <a href="{{root}}Ticketing/TicketingHome.html" id="navHome" title="Home"><i class="icon"><img src="{{root}}assets/img/icon-light-home.png" /></i> <span class="text">Home</span></a></li>
       <li>
         <a href="{{root}}/Ticketing/profile.html" id="navProfile" title="Profile"><i class="icon"><img src="{{root}}assets/img/icon-light-profile.png" /></i> <span class="text">Profile</span></a></li>
@@ -49,26 +47,5 @@
     </nav><!-- main menu -->
     <footer>BIZCUBE TICKETING</footer>
   </div><!-- mainMenuContainer end -->
-  <form id="searchForm" action="" method="GET" >
-    <input type="text" id="searchField" name="searchField" class="noBox" placeholder="Search">
-
-    <button id="searchFilterBtn" data-target="searchFilterBox" class="modalButton"><i class="icon"><img src="{{root}}/assets/img/icon-light-filter.png"></i></button>
-    <button id="searchBtn" type="submit"><i class="icon"><img src="{{root}}/assets/img/icon-light-search.png"></i><span class="text ">Filter</span></button>
-
-    <div class="reveal form modalContent"  id="searchFilterBox">
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <div class="labelText">Category</div>
-      <div class="checkboxGroup">
-        <label for="searchCategoryContacts">
-        <input type="checkbox" id="searchCategoryContacts" name="searchCategory" value=contacts"">Contacts</label>
-        <label for="searchCategoryVolunteer">
-        <input type="checkbox" id="searchCategoryVolunteer" name="searchVolunteer" value=contacts"">Volunteer</label>
-        <label for="searchCategoryDonation">
-        <input type="checkbox" id="searchCategoryDonation" name="searchDonation" value=donation"">Donation</label>
-      </div>
-    </div>
-  </form><!-- searchForm end -->
 </header>
 <!-- header end -->
