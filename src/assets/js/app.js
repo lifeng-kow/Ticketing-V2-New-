@@ -84,6 +84,29 @@ $(function(){
     GetBasicInformation(appCookie.personID);
   }
 
+  var checkRoleAccess =
+    $.ajax({
+      url: apiSrc+"BCMain/iCtc1.CheckRoleAccess.json",
+      method: "POST",
+      dataType: "json",
+      xhrFields: {withCredentials: true},
+      data: { 'data':JSON.stringify({}),
+              'WebPartKey':WebPartVal,
+              'ReqGUID': getGUID() },
+      success: function(data){
+        if ((data) && (data.d.RetVal === -1)) {
+          if (data.d.RetData.Tbl.Rows.length > 0) {
+            var RoleName = data.d.RetData.Tbl.Rows[0].RoleName;
+            if (RoleName=='Clients'){
+              $('#caseFilter .orgCell, #mainMenu .packageMenu').hide();
+            }else{
+              $('#caseFilter .orgCell').show();
+            }
+          }
+        }
+      }
+    });
+
   $('#mainMenuLeft #logOut, #logOut').click(function() {
     $.ajax({
       url: apiSrc+"Sec1.Logout.json",
@@ -332,15 +355,6 @@ function GetBasicInformation(personID) {
     success: function(data){
       if ((data) && (data.d.RetData.Tbl.Rows.length > 0)) {
         $('.profileName').html(data.d.RetData.Tbl.Rows[0].DisplayName);
-        if (data.d.RetData.Tbl.Rows[0].EntityType == 'I'){
-          //$('#navReport').show();
-          $('#packages').hide();
-          $('#mainMenuLeft #navPackages, #navPackages').show();
-          $('#mainMenuLeft #navSettings, #navSettings').show();
-        }else{
-          $('#caseFilter .orgCell').hide();
-          $('#caseFilter #statusMyCase, #caseFilter .mycase').hide();
-        }
       }
     },
     error: function(XMLHttpRequest, data, errorThrown){
