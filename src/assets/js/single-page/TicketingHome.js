@@ -42,6 +42,9 @@ $(function(){
           }
         }
       }
+      else {
+        alert(data.d.RetMsg);
+      }
     }
   });
 
@@ -64,6 +67,9 @@ $(function(){
           }
         }
       }
+      else {
+        alert(data.d.RetMsg);
+      }
     }
   });
 
@@ -81,6 +87,9 @@ $(function(){
           if (data.d.RetData.Tbl.Rows.length > 0) {
             RoleName = data.d.RetData.Tbl.Rows[0].RoleName;
           }
+        }
+        else {
+          alert(data.d.RetMsg);
         }
       }
     });
@@ -191,6 +200,9 @@ function getCasesList(){
           });
         }
       }
+      else {
+        alert(data.d.RetMsg);
+      }
     }
   });
 };
@@ -236,6 +248,9 @@ function getUsersList(){
             window.location.href = profileUrl;
           });
         }
+      }
+      else {
+        alert(data.d.RetMsg);
       }
     }
   });
@@ -330,6 +345,9 @@ function getProductOwn(){
           $('#caseAddForm #product').val(Product);
         });
       }
+      else {
+        alert(data.d.RetMsg);
+      }
     }
   });
 };
@@ -354,6 +372,9 @@ function getOrgProductList(Organization){
             $('#caseAddForm #product').append('<option value="'+productList[i].Product+'">'+productList[i].Product+'</option>');
           }
         }
+      }
+      else {
+        alert(data.d.RetMsg);
       }
     }
   });
