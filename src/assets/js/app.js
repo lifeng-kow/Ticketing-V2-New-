@@ -104,6 +104,9 @@ $(function(){
             }
           }
         }
+      },
+      error: function(data){
+        alert("Error: " + data.responseJSON.d.RetMsg);
       }
     });
 
@@ -357,7 +360,8 @@ function GetBasicInformation(personID) {
         $('.profileName').html(data.d.RetData.Tbl.Rows[0].DisplayName);
       }
     },
-    error: function(XMLHttpRequest, data, errorThrown){
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
       Cookies.remove('appCookie');
       document.location.reload();
     }

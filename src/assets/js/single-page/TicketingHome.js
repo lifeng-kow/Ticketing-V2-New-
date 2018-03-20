@@ -45,6 +45,9 @@ $(function(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 
@@ -70,6 +73,9 @@ $(function(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 
@@ -91,6 +97,9 @@ $(function(){
         else {
           alert(data.d.RetMsg);
         }
+      },
+      error: function(data){
+        alert("Error: " + data.responseJSON.d.RetMsg);
       }
     });
 
@@ -203,6 +212,9 @@ function getCasesList(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 };
@@ -252,6 +264,9 @@ function getUsersList(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 };
@@ -304,6 +319,9 @@ function createNewCase(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 };
@@ -348,6 +366,9 @@ function getProductOwn(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 };
@@ -376,6 +397,9 @@ function getOrgProductList(Organization){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 }
@@ -421,6 +445,9 @@ function addNewPackage(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 }
@@ -486,6 +513,9 @@ function addNewUser(){
       else {
         alert(data.d.RetMsg);
       }
+    },
+    error: function(data){
+      alert("Error: " + data.responseJSON.d.RetMsg);
     }
   });
 }
